@@ -1,0 +1,117 @@
+{
+  "name": "Ultimate AI IDE",
+  "version": "0.1.0",
+  "description": "The Ultimate AI-Powered Development Environment with MCP integration",
+  "main": "apps/web",
+  "author": "Ultimate AI IDE Team",
+  "license": "MIT",
+  "claude": {
+    "version": "1.0",
+    "capabilities": [
+      "file_operations",
+      "terminal_access",
+      "web_search",
+      "code_analysis",
+      "project_management"
+    ],
+    "settings": {
+      "auto_organize": true,
+      "smart_suggestions": true,
+      "context_preservation": true,
+      "memory_persistence": true
+    }
+  },
+  "workspace": {
+    "type": "monorepo",
+    "package_manager": "npm",
+    "framework": "next",
+    "language": "typescript",
+    "style": "tailwindcss"
+  },
+  "structure": {
+    "apps": {
+      "description": "Application packages",
+      "subdirs": {
+        "web": "Next.js 15 web application",
+        "desktop": "Tauri desktop application (future)"
+      }
+    },
+    "packages": {
+      "description": "Shared packages",
+      "subdirs": {
+        "ui": "Shared UI components (shadcn/ui)",
+        "mcp-hub": "MCP server integrations",
+        "ai-agents": "AI agent orchestration"
+      }
+    },
+    "services": {
+      "description": "Backend services",
+      "subdirs": {
+        "api": "FastAPI microservices",
+        "claude-wrapper": "Claude Code enhancement layer",
+        "storage-sync": "Multi-destination sync service"
+      }
+    },
+    "infrastructure": {
+      "description": "Infrastructure configurations",
+      "subdirs": {
+        "docker": "Docker configurations",
+        "k8s": "Kubernetes manifests",
+        "terraform": "Infrastructure as Code"
+      }
+    }
+  },
+  "integrations": {
+    "mcp_servers": [
+      "filesystem",
+      "git",
+      "memory",
+      "sequential-thinking",
+      "notion",
+      "github",
+      "slack"
+    ],
+    "ai_models": [
+      "claude-3-opus",
+      "claude-3-sonnet",
+      "gpt-4",
+      "local-llms"
+    ],
+    "storage": [
+      "supabase",
+      "notion",
+      "github",
+      "s3"
+    ]
+  },
+  "scripts": {
+    "dev": "npm run dev",
+    "build": "npm run build",
+    "test": "npm run test",
+    "deploy": "npm run deploy",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down"
+  },
+  "environment_variables": [
+    "CLAUDE_API_KEY",
+    "OPENAI_API_KEY",
+    "SUPABASE_URL",
+    "SUPABASE_ANON_KEY",
+    "GITHUB_TOKEN",
+    "NOTION_TOKEN",
+    "SLACK_BOT_TOKEN"
+  ],
+  "development": {
+    "port": 3000,
+    "api_port": 8000,
+    "mcp_port": 9000,
+    "hot_reload": true,
+    "debug": true
+  },
+  "production": {
+    "optimize": true,
+    "minify": true,
+    "source_maps": false,
+    "monitoring": true
+  }
+}

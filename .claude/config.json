@@ -1,0 +1,115 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "Ultimate AI IDE",
+    "type": "monorepo",
+    "framework": "next.js",
+    "language": "typescript"
+  },
+  "preferences": {
+    "auto_save": true,
+    "auto_format": true,
+    "auto_lint": true,
+    "auto_test": false,
+    "suggest_improvements": true,
+    "explain_changes": true
+  },
+  "hooks": {
+    "pre_commit": ".claude/hooks/pre-commit.sh",
+    "post_commit": null,
+    "pre_push": null,
+    "post_merge": null
+  },
+  "ai_settings": {
+    "model_preference": "claude-3-opus",
+    "context_window": 200000,
+    "temperature": 0.7,
+    "max_tokens": 4096,
+    "streaming": true
+  },
+  "code_style": {
+    "indent_size": 2,
+    "indent_type": "space",
+    "quote_style": "single",
+    "semicolons": false,
+    "trailing_comma": "es5",
+    "bracket_spacing": true,
+    "arrow_parens": "always",
+    "print_width": 100
+  },
+  "integrations": {
+    "github": {
+      "enabled": true,
+      "auto_pr": false,
+      "draft_pr": true,
+      "pr_template": true
+    },
+    "notion": {
+      "enabled": true,
+      "workspace_id": null,
+      "auto_doc": true
+    },
+    "slack": {
+      "enabled": false,
+      "channel": null,
+      "notifications": false
+    }
+  },
+  "mcp_servers": {
+    "filesystem": {
+      "enabled": true,
+      "root": "./",
+      "allowed_operations": ["read", "write", "create", "delete"]
+    },
+    "git": {
+      "enabled": true,
+      "auto_commit": false,
+      "commit_message_format": "conventional"
+    },
+    "memory": {
+      "enabled": true,
+      "persist": true,
+      "max_items": 1000
+    },
+    "notion": {
+      "enabled": true,
+      "sync_interval": 300
+    },
+    "github": {
+      "enabled": true,
+      "repo_access": ["read", "write"]
+    }
+  },
+  "agents": {
+    "code_reviewer": {
+      "enabled": true,
+      "auto_review": true,
+      "severity_threshold": "warning"
+    },
+    "file_organizer": {
+      "enabled": true,
+      "auto_organize": false,
+      "rules_file": ".claude/organize-rules.json"
+    },
+    "backup_manager": {
+      "enabled": true,
+      "auto_backup": true,
+      "backup_interval": 3600,
+      "destinations": ["github", "notion", "local"]
+    }
+  },
+  "shortcuts": {
+    "dev": "npm run dev",
+    "build": "npm run build",
+    "test": "npm run test",
+    "docker": "docker-compose up -d",
+    "deploy": "npm run deploy"
+  },
+  "context_files": [
+    "CLAUDE.md",
+    "README.md",
+    "package.json",
+    "tsconfig.json",
+    ".env.example"
+  ]
+}

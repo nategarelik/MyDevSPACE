@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en" data-color-scheme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate AI IDE - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <h1 class="header-title">Ultimate AI IDE</h1>
+                <div class="status-indicator status-indicator--active">
+                    <span class="status-dot"></span>
+                    System Active
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="header-stats">
+                    <div class="header-stat">
+                        <span class="header-stat-label">CPU</span>
+                        <span class="header-stat-value">45%</span>
+                    </div>
+                    <div class="header-stat">
+                        <span class="header-stat-label">Memory</span>
+                        <span class="header-stat-value">62%</span>
+                    </div>
+                </div>
+                <button class="btn btn--primary btn--sm">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="sidebar-nav-item sidebar-nav-item--active" data-section="dashboard">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="#projects" class="sidebar-nav-item" data-section="projects">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <folder x="3" y="3" width="18" height="18" rx="2" ry="2"></folder>
+                        <path d="M3 7h18"></path>
+                    </svg>
+                    Projects
+                </a>
+                <a href="#agents" class="sidebar-nav-item" data-section="agents">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                    AI Agents
+                </a>
+                <a href="#storage" class="sidebar-nav-item" data-section="storage">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14,2 14,8 20,8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10,9 9,9 8,9"></polyline>
+                    </svg>
+                    Storage
+                </a>
+                <a href="#extensions" class="sidebar-nav-item" data-section="extensions">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <path d="M9 9h6v6H9z"></path>
+                    </svg>
+                    Extensions
+                </a>
+                <a href="#settings" class="sidebar-nav-item" data-section="settings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                    Settings
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Section -->
+            <section id="dashboard-section" class="content-section content-section--active">
+                <div class="section-header">
+                    <h2>Dashboard Overview</h2>
+                    <div class="section-actions">
+                        <button class="btn btn--primary">New Project</button>
+                        <button class="btn btn--secondary">Run Agent</button>
+                        <button class="btn btn--outline">Sync Storage</button>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- System Status -->
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <h3>System Status</h3>
+                            <span class="status status--success">All Systems Operational</span>
+                        </div>
+                        <div class="dashboard-card-content">
+                            <div class="status-grid">
+                                <div class="status-item">
+                                    <div class="status-item-icon status-item-icon--success">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="status-item-content">
+                                        <span class="status-item-label">Claude Code</span>
+                                        <span class="status-item-value">Connected</span>
+                                    </div>
+                                </div>
+                                <div class="status-item">
+                                    <div class="status-item-icon status-item-icon--success">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="status-item-content">
+                                        <span class="status-item-label">Storage Sync</span>
+                                        <span class="status-item-value">Active</span>
+                                    </div>
+                                </div>
+                                <div class="status-item">
+                                    <div class="status-item-icon status-item-icon--success">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="status-item-content">
+                                        <span class="status-item-label">AI Agents</span>
+                                        <span class="status-item-value">3 Active</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resource Usage Charts -->
+                    <div class="dashboard-card dashboard-card--chart">
+                        <div class="dashboard-card-header">
+                            <h3>Resource Usage</h3>
+                        </div>
+                        <div class="dashboard-card-content">
+                            <div class="chart-container" style="position: relative; height: 200px;">
+                                <canvas id="resourceChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <h3>Recent Activity</h3>
+                        </div>
+                        <div class="dashboard-card-content">
+                            <div class="activity-feed">
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="m9 12 2 2 4-4"></path>
+                                            <path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.953c-.55-.055-.998.398-.998.95v1a1 1 0 0 0 1 1 8 8 0 0 1 7.001 7.001A1 1 0 0 0 21 12z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-content">
+                                        <span class="activity-text">Code Reviewer completed analysis of AI Lighter Project</span>
+                                        <span class="activity-time">2 minutes ago</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                            <polyline points="14,2 14,8 20,8"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-content">
+                                        <span class="activity-text">Files synced to Notion Database</span>
+                                        <span class="activity-time">5 minutes ago</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-content">
+                                        <span class="activity-text">New project "Mobile CRM" created</span>
+                                        <span class="activity-time">1 day ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <h3>Quick Actions</h3>
+                        </div>
+                        <div class="dashboard-card-content">
+                            <div class="quick-actions">
+                                <button class="quick-action-btn" data-action="new-project">
+                                    <div class="quick-action-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        </svg>
+                                    </div>
+                                    <span class="quick-action-label">New Project</span>
+                                </button>
+                                <button class="quick-action-btn" data-action="run-agent">
+                                    <div class="quick-action-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                        </svg>
+                                    </div>
+                                    <span class="quick-action-label">Run Agent</span>
+                                </button>
+                                <button class="quick-action-btn" data-action="sync-storage">
+                                    <div class="quick-action-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.3"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="quick-action-label">Sync Storage</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects-section" class="content-section">
+                <div class="section-header">
+                    <h2>Projects</h2>
+                    <div class="section-controls">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search projects..." class="form-control">
+                        </div>
+                        <select class="form-control">
+                            <option>All Types</option>
+                            <option>Web Application</option>
+                            <option>Mobile App</option>
+                            <option>IoT/Embedded</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card" data-project="proj-001">
+                        <div class="project-card-header">
+                            <div class="project-status status--success">Active</div>
+                            <div class="project-actions">
+                                <button class="btn-icon" title="Open in IDE">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15,3 21,3 21,9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <h3 class="project-title">AI Lighter Project</h3>
+                            <p class="project-description">Raspberry Pi 5 AI-integrated lighter with servo control</p>
+                            <div class="project-meta">
+                                <span class="project-type">IoT/Embedded</span>
+                                <span class="project-updated">2 hours ago</span>
+                            </div>
+                            <div class="project-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%"></div>
+                                </div>
+                                <span class="progress-text">75% complete</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-project="proj-002">
+                        <div class="project-card-header">
+                            <div class="project-status status--warning">In Development</div>
+                            <div class="project-actions">
+                                <button class="btn-icon" title="Open in IDE">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15,3 21,3 21,9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <h3 class="project-title">Web Dashboard</h3>
+                            <p class="project-description">React-based analytics dashboard</p>
+                            <div class="project-meta">
+                                <span class="project-type">Web Application</span>
+                                <span class="project-updated">5 hours ago</span>
+                            </div>
+                            <div class="project-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 45%"></div>
+                                </div>
+                                <span class="progress-text">45% complete</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-project="proj-003">
+                        <div class="project-card-header">
+                            <div class="project-status status--info">Planning</div>
+                            <div class="project-actions">
+                                <button class="btn-icon" title="Open in IDE">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15,3 21,3 21,9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <h3 class="project-title">Mobile CRM</h3>
+                            <p class="project-description">AI-powered customer relationship management app</p>
+                            <div class="project-meta">
+                                <span class="project-type">Mobile App</span>
+                                <span class="project-updated">1 day ago</span>
+                            </div>
+                            <div class="project-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 15%"></div>
+                                </div>
+                                <span class="progress-text">15% complete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI Agents Section -->
+            <section id="agents-section" class="content-section">
+                <div class="section-header">
+                    <h2>AI Agents</h2>
+                    <div class="section-actions">
+                        <button class="btn btn--primary">Deploy Agent</button>
+                        <button class="btn btn--secondary">Marketplace</button>
+                    </div>
+                </div>
+
+                <div class="agents-grid">
+                    <div class="agent-card agent-card--active">
+                        <div class="agent-card-header">
+                            <div class="agent-status">
+                                <div class="status-dot status-dot--active"></div>
+                                <span>Active</span>
+                            </div>
+                            <div class="agent-efficiency">92% Efficiency</div>
+                        </div>
+                        <div class="agent-card-content">
+                            <h3 class="agent-name">Code Reviewer</h3>
+                            <div class="agent-stats">
+                                <div class="agent-stat">
+                                    <span class="agent-stat-label">Active Tasks</span>
+                                    <span class="agent-stat-value">3</span>
+                                </div>
+                                <div class="agent-stat">
+                                    <span class="agent-stat-label">Completed Today</span>
+                                    <span class="agent-stat-value">12</span>
+                                </div>
+                            </div>
+                            <div class="agent-actions">
+                                <button class="btn btn--sm btn--outline">Configure</button>
+                                <button class="btn btn--sm btn--secondary">Pause</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="agent-card agent-card--active">
+                        <div class="agent-card-header">
+                            <div class="agent-status">
+                                <div class="status-dot status-dot--active"></div>
+                                <span>Active</span>
+                            </div>
+                            <div class="agent-efficiency">88% Efficiency</div>
+                        </div>
+                        <div class="agent-card-content">
+                            <h3 class="agent-name">File Organizer</h3>
+                            <div class="agent-stats">
+                                <div class="agent-stat">
+                                    <span class="agent-stat-label">Active Tasks</span>
+                                    <span class="agent-stat-value">1</span>
+                                </div>
+                                <div class="agent-stat">
+                                    <span class="agent-stat-label">Files Organized</span>
+                                    <span class="agent-stat-value">47</span>
+                                </div>
+                            </div>
+                            <div class="agent-actions">
+                                <button class="btn btn--sm btn--outline">Configure</button>
+                                <button class="btn btn--sm btn--secondary">Pause</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="agent-card agent-card--idle">
+                        <div class="agent-card-header">
+                            <div class="agent-status">
+                                <div class="status-dot status-dot--idle"></div>
+                                <span>Idle</span>
+                            </div>
+                            <div class="agent-efficiency">95% Efficiency</div>
+                        </div>
+                        <div class="agent-card-content">
+                            <h3 class="agent-name">Backup Manager</h3>
+                            <div class="agent-stats">
+                                <div class="agent-stat">
+                                    <span class="agent-stat-label">Active Tasks</span>
+                                    <span class="agent-stat-value">0</span>
+                                </div>
+                                <div class="agent-stat">
+                                    <span class="agent-stat-label">Last Backup</span>
+                                    <span class="agent-stat-value">2h ago</span>
+                                </div>
+                            </div>
+                            <div class="agent-actions">
+                                <button class="btn btn--sm btn--outline">Configure</button>
+                                <button class="btn btn--sm btn--primary">Activate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Storage Section -->
+            <section id="storage-section" class="content-section">
+                <div class="section-header">
+                    <h2>Storage Management</h2>
+                    <div class="section-actions">
+                        <button class="btn btn--primary">Add Storage</button>
+                        <button class="btn btn--secondary">Sync All</button>
+                    </div>
+                </div>
+
+                <div class="storage-grid">
+                    <div class="storage-card storage-card--connected">
+                        <div class="storage-card-header">
+                            <div class="storage-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                    <polyline points="14,2 14,8 20,8"></polyline>
+                                </svg>
+                            </div>
+                            <div class="storage-status">
+                                <div class="status-dot status-dot--active"></div>
+                                <span>Connected</span>
+                            </div>
+                        </div>
+                        <div class="storage-card-content">
+                            <h3 class="storage-name">Notion Database</h3>
+                            <div class="storage-usage">
+                                <div class="usage-bar">
+                                    <div class="usage-fill" style="width: 65%"></div>
+                                </div>
+                                <span class="usage-text">65% used</span>
+                            </div>
+                            <div class="storage-meta">
+                                <span class="storage-sync">Last sync: 5 minutes ago</span>
+                            </div>
+                            <div class="storage-actions">
+                                <button class="btn btn--sm btn--outline">Configure</button>
+                                <button class="btn btn--sm btn--primary">Sync Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storage-card storage-card--connected">
+                        <div class="storage-card-header">
+                            <div class="storage-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 0-8-2.5-8-7s3-7 8-7 8 2.5 8 7-3 7-8 7z"></path>
+                                    <path d="M15 12h.01"></path>
+                                    <path d="M12 12v.01"></path>
+                                    <path d="M9 12h.01"></path>
+                                </svg>
+                            </div>
+                            <div class="storage-status">
+                                <div class="status-dot status-dot--active"></div>
+                                <span>Connected</span>
+                            </div>
+                        </div>
+                        <div class="storage-card-content">
+                            <h3 class="storage-name">GitHub Repos</h3>
+                            <div class="storage-usage">
+                                <div class="usage-bar">
+                                    <div class="usage-fill" style="width: 82%"></div>
+                                </div>
+                                <span class="usage-text">82% used</span>
+                            </div>
+                            <div class="storage-meta">
+                                <span class="storage-sync">Last sync: 10 minutes ago</span>
+                            </div>
+                            <div class="storage-actions">
+                                <button class="btn btn--sm btn--outline">Configure</button>
+                                <button class="btn btn--sm btn--primary">Sync Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storage-card storage-card--connected">
+                        <div class="storage-card-header">
+                            <div class="storage-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                                </svg>
+                            </div>
+                            <div class="storage-status">
+                                <div class="status-dot status-dot--active"></div>
+                                <span>Connected</span>
+                            </div>
+                        </div>
+                        <div class="storage-card-content">
+                            <h3 class="storage-name">Cloud Storage</h3>
+                            <div class="storage-usage">
+                                <div class="usage-bar">
+                                    <div class="usage-fill" style="width: 43%"></div>
+                                </div>
+                                <span class="usage-text">43% used</span>
+                            </div>
+                            <div class="storage-meta">
+                                <span class="storage-sync">Last sync: 15 minutes ago</span>
+                            </div>
+                            <div class="storage-actions">
+                                <button class="btn btn--sm btn--outline">Configure</button>
+                                <button class="btn btn--sm btn--primary">Sync Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Extensions Section -->
+            <section id="extensions-section" class="content-section">
+                <div class="section-header">
+                    <h2>Extensions</h2>
+                    <div class="section-actions">
+                        <button class="btn btn--primary">Browse Marketplace</button>
+                    </div>
+                </div>
+                <div class="extensions-placeholder">
+                    <div class="placeholder-content">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <path d="M9 9h6v6H9z"></path>
+                        </svg>
+                        <h3>No Extensions Installed</h3>
+                        <p>Extend your IDE capabilities with powerful extensions from the marketplace.</p>
+                        <button class="btn btn--primary">Browse Extensions</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings-section" class="content-section">
+                <div class="section-header">
+                    <h2>Settings</h2>
+                </div>
+                <div class="settings-placeholder">
+                    <div class="placeholder-content">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                        <h3>Configuration Panel</h3>
+                        <p>Customize your Ultimate AI IDE experience with advanced settings and preferences.</p>
+                        <button class="btn btn--primary">Open Settings</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for Project Details -->
+    <div id="project-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-project-title">Project Details</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal-project-content">
+                    <!-- Project details will be populated here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn--outline">Close</button>
+                <button class="btn btn--primary">Open in IDE</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+{
+  "architecture_patterns": [
+    "Microservices Architecture",
+    "Event-Driven Architecture",
+    "Plugin/Extension Architecture",
+    "Model-View-Controller (MVC)",
+    "Repository Pattern",
+    "Observer Pattern"
+  ],
+  "core_services": {
+    "claude_integration_service": {
+      "purpose": "Manages all Claude Code interactions",
+      "responsibilities": [
+        "Command execution and monitoring",
+        "Response parsing and formatting",
+        "Error handling and recovery",
+        "Session management",
+        "Hook configuration and execution"
+      ]
+    },
+    "ai_orchestrator": {
+      "purpose": "Coordinates multiple AI agents",
+      "responsibilities": [
+        "Task delegation and load balancing",
+        "Agent lifecycle management",
+        "Cross-agent communication",
+        "Conflict resolution",
+        "Performance monitoring"
+      ]
+    },
+    "storage_manager": {
+      "purpose": "Handles all storage operations",
+      "responsibilities": [
+        "Multi-destination sync (Notion, GitHub, Cloud)",
+        "Conflict resolution",
+        "Version control integration",
+        "Backup and recovery",
+        "Data encryption"
+      ]
+    },
+    "organization_engine": {
+      "purpose": "Intelligent project organization",
+      "responsibilities": [
+        "File classification and tagging",
+        "Project structure optimization",
+        "Dependency tracking",
+        "Resource allocation",
+        "Cleanup and maintenance"
+      ]
+    },
+    "extension_framework": {
+      "purpose": "Plugin and extension management",
+      "responsibilities": [
+        "Plugin discovery and installation",
+        "API versioning and compatibility",
+        "Security sandboxing",
+        "Resource management",
+        "Marketplace integration"
+      ]
+    }
+  },
+  "data_models": {
+    "project": {
+      "id": "UUID",
+      "name": "string",
+      "type": "enum[web, mobile, ai, data, etc.]",
+      "structure": "object",
+      "dependencies": "array",
+      "metadata": "object",
+      "created_at": "timestamp",
+      "updated_at": "timestamp"
+    },
+    "task": {
+      "id": "UUID",
+      "project_id": "UUID",
+      "description": "string",
+      "status": "enum[pending, in_progress, completed, failed]",
+      "assigned_agent": "string",
+      "priority": "integer",
+      "created_at": "timestamp",
+      "completed_at": "timestamp"
+    },
+    "configuration": {
+      "id": "UUID",
+      "scope": "enum[global, project, user]",
+      "key": "string",
+      "value": "any",
+      "encrypted": "boolean",
+      "updated_at": "timestamp"
+    }
+  }
+}
