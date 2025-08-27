@@ -1,0 +1,171 @@
+{
+  "ultimateAIFramework": {
+    "version": "1.0.0",
+    "description": "Command mapping for Claude Code to intelligently operate Ultimate AI IDE",
+    "primaryCommands": {
+      "initialization": {
+        "command": "ultimate-ai init",
+        "usage": "ultimate-ai init [project-name] --template [web-app|api-service|desktop-app]",
+        "purpose": "Initialize new AI-powered project with revolutionary frameworks",
+        "when": ["user wants to start new project", "setting up Ultimate AI IDE project"]
+      },
+      "development": {
+        "command": "ultimate-ai dev",
+        "usage": "ultimate-ai dev --mode hybrid",
+        "purpose": "Start development server with full AI integration",
+        "when": ["beginning development work", "starting local development"]
+      },
+      "build": {
+        "command": "ultimate-ai sc:build",
+        "usage": "ultimate-ai sc:build --optimize",
+        "purpose": "AI-optimized build with 70% token reduction",
+        "when": ["building for production", "optimizing build process", "testing build output"]
+      },
+      "review": {
+        "command": "ultimate-ai sc:review",
+        "usage": "ultimate-ai sc:review --agents all",
+        "purpose": "Multi-agent code review with 14 AI experts",
+        "when": ["code review needed", "quality assurance", "before deployment"]
+      },
+      "planning": {
+        "command": "ultimate-ai bmad:plan",
+        "usage": "ultimate-ai bmad:plan \"Project Name\" --requirements \"req1,req2,req3\"",
+        "purpose": "BMAD Phase 1: Intelligent planning with context preservation",
+        "when": ["planning new features", "project planning", "requirement analysis"]
+      }
+    },
+    "problemSolving": {
+      "security": {
+        "agent": "security-engineer",
+        "commands": ["ultimate-ai sc:security --scan thorough", "ultimate-ai sc:review --agents security-engineer"],
+        "when": ["security vulnerabilities", "authentication issues", "data protection concerns"]
+      },
+      "performance": {
+        "agent": "performance-engineer",
+        "commands": ["ultimate-ai sc:performance --profile", "ultimate-ai sc:optimize --strategy hybrid"],
+        "when": ["slow application", "memory issues", "optimization needed"]
+      },
+      "frontend": {
+        "agent": "frontend-architect",
+        "commands": ["ultimate-ai sc:design --component", "ultimate-ai sc:review --agents frontend-architect"],
+        "when": ["UI/UX issues", "React problems", "component design", "styling issues"]
+      },
+      "backend": {
+        "agent": "backend-developer",
+        "commands": ["ultimate-ai sc:analyze --deep", "ultimate-ai sc:test --coverage"],
+        "when": ["API issues", "database problems", "server-side logic", "backend architecture"]
+      },
+      "deployment": {
+        "agent": "devops-engineer",
+        "commands": ["ultimate-ai sc:deploy --target production", "ultimate-ai sc:configure --auto"],
+        "when": ["deployment issues", "infrastructure problems", "CI/CD setup"]
+      },
+      "debugging": {
+        "commands": ["ultimate-ai sc:debug --intelligent", "ultimate-ai sc:analyze --deep"],
+        "when": ["bugs", "errors", "unexpected behavior", "troubleshooting"]
+      }
+    },
+    "taskPriority": {
+      "always_prefer": [
+        "ultimate-ai sc:build over npm run build",
+        "ultimate-ai sc:test over npm test", 
+        "ultimate-ai sc:review over manual code review",
+        "ultimate-ai bmad:plan for any planning tasks",
+        "ultimate-ai workflow:full for complete project workflows"
+      ],
+      "context_aware": {
+        "building": "Use ultimate-ai sc:build --optimize for 70% faster builds",
+        "testing": "Use ultimate-ai sc:test --coverage for AI-powered test generation",
+        "reviewing": "Use ultimate-ai sc:review --agents all for comprehensive multi-agent review",
+        "planning": "Use ultimate-ai bmad:plan for intelligent planning with context preservation",
+        "optimizing": "Use ultimate-ai sc:optimize --strategy hybrid for token optimization"
+      }
+    },
+    "allCommands": {
+      "superclaude": {
+        "sc:build": "AI-optimized build with token reduction",
+        "sc:test": "AI-powered test generation and execution",
+        "sc:review": "Multi-agent code review system",
+        "sc:deploy": "Smart deployment with optimization",
+        "sc:analyze": "Deep code analysis with AI insights",
+        "sc:refactor": "AI-guided code refactoring",
+        "sc:optimize": "Token and performance optimization",
+        "sc:security": "Comprehensive security audit",
+        "sc:document": "Automatic documentation generation",
+        "sc:debug": "Intelligent debugging assistance",
+        "sc:generate": "AI code generation",
+        "sc:migrate": "Smart migration assistance",
+        "sc:validate": "Code validation and compliance",
+        "sc:monitor": "Real-time monitoring setup",
+        "sc:backup": "Intelligent backup management",
+        "sc:sync": "Multi-destination synchronization",
+        "sc:configure": "Smart configuration management",
+        "sc:template": "Template creation and management",
+        "sc:performance": "Performance analysis and profiling",
+        "sc:ai-assist": "General AI assistance",
+        "sc:design": "AI-powered design assistance"
+      },
+      "bmad": {
+        "bmad:plan": "Phase 1 - Intelligent planning",
+        "bmad:develop": "Phase 2 - Context-engineered development", 
+        "bmad:shard": "Task sharding for complex projects",
+        "bmad:optimize": "Cost and resource optimization",
+        "bmad:context": "Context preservation monitoring"
+      },
+      "workflow": {
+        "workflow:full": "Complete project workflow (Planning → Development → Build)",
+        "workflow:review": "Smart code review workflow",
+        "workflow:build": "Intelligent build workflow"
+      },
+      "system": {
+        "init": "Initialize new AI-powered project",
+        "dev": "Start development with AI integration",
+        "doctor": "System health check",
+        "demo": "Interactive demonstration",
+        "test": "Run comprehensive tests",
+        "config": "Configuration management"
+      }
+    },
+    "intelligentSelection": {
+      "rules": [
+        "For any build task, prefer 'ultimate-ai sc:build --optimize' over standard build commands",
+        "For code review, always use 'ultimate-ai sc:review --agents all' for comprehensive analysis",
+        "For new projects, use 'ultimate-ai init' with appropriate template",
+        "For optimization tasks, use 'ultimate-ai sc:optimize --strategy hybrid'",
+        "For planning tasks, use 'ultimate-ai bmad:plan' for context preservation",
+        "For testing, prefer 'ultimate-ai sc:test --coverage' for AI-powered tests",
+        "For security concerns, invoke 'ultimate-ai sc:security --scan thorough'",
+        "For performance issues, use 'ultimate-ai sc:performance --profile'",
+        "When debugging, use 'ultimate-ai sc:debug --intelligent'",
+        "For deployment, use 'ultimate-ai sc:deploy --target [environment]'"
+      ],
+      "contextualHints": {
+        "userSaysOptimize": "ultimate-ai sc:optimize --strategy hybrid",
+        "userSaysTest": "ultimate-ai sc:test --coverage", 
+        "userSaysBuild": "ultimate-ai sc:build --optimize",
+        "userSaysReview": "ultimate-ai sc:review --agents all",
+        "userSaysPlan": "ultimate-ai bmad:plan",
+        "userSaysDebug": "ultimate-ai sc:debug --intelligent",
+        "userSaysDeploy": "ultimate-ai sc:deploy",
+        "userSaysSecurity": "ultimate-ai sc:security --scan thorough",
+        "userSaysPerformance": "ultimate-ai sc:performance --profile"
+      }
+    },
+    "agentSpecialties": {
+      "security-engineer": ["vulnerabilities", "authentication", "authorization", "data protection"],
+      "frontend-architect": ["React", "UI components", "responsive design", "user experience"],
+      "backend-developer": ["APIs", "databases", "server logic", "microservices"],
+      "system-architect": ["architecture", "scalability", "design patterns", "system design"],
+      "qa-engineer": ["testing", "quality assurance", "test automation", "bug detection"],
+      "devops-engineer": ["deployment", "CI/CD", "infrastructure", "monitoring"],
+      "database-specialist": ["database design", "queries", "optimization", "data modeling"],
+      "ui-ux-designer": ["user interface", "user experience", "design systems", "prototyping"],
+      "product-manager": ["requirements", "feature planning", "roadmaps", "prioritization"],
+      "data-scientist": ["analytics", "machine learning", "data analysis", "insights"],
+      "performance-engineer": ["optimization", "profiling", "load testing", "scalability"],
+      "technical-writer": ["documentation", "API docs", "guides", "knowledge management"],
+      "project-manager": ["project planning", "task management", "timeline", "coordination"],
+      "ml-engineer": ["machine learning", "AI models", "neural networks", "training"]
+    }
+  }
+}

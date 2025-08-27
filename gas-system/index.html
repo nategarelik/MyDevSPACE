@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAS - Garelik Agentic System Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>GAS</h1>
+                    <span class="subtitle">Garelik Agentic System - Personal AI for Nathaniel Garelik</span>
+                </div>
+                <div class="system-status">
+                    <div class="status-indicator active" id="system-status">
+                        <div class="status-dot"></div>
+                        <span>System Starting...</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tab-navigation">
+            <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+            <button class="tab-btn" data-tab="ai-reasoning">AI Reasoning</button>
+            <button class="tab-btn" data-tab="memory">Memory System</button>
+            <button class="tab-btn" data-tab="agents">Agent Orchestration</button>
+            <button class="tab-btn" data-tab="security">Security Monitor</button>
+            <button class="tab-btn" data-tab="analytics">Analytics</button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <!-- Dashboard View -->
+            <div id="dashboard" class="tab-content active">
+                <div class="dashboard-grid">
+                    <!-- System Overview -->
+                    <section class="overview-section">
+                        <h2>System Architecture</h2>
+                        <div class="architecture-container">
+                            <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/c580f37e92a6707e1b8f00a1cb2e02a3/a9ad50c5-8eb4-4539-93b5-3c7544668a3f/b3d15efe.png" alt="GAS System Architecture" class="architecture-diagram">
+                        </div>
+                    </section>
+
+                    <!-- Component Status Cards -->
+                    <section class="components-grid">
+                        <div class="component-card" data-component="orchestration">
+                            <div class="card-header">
+                                <h3>Hybrid Orchestration Engine</h3>
+                                <div class="status-badge healthy">Healthy</div>
+                            </div>
+                            <div class="load-bar">
+                                <div class="load-fill" style="width: 67%"></div>
+                                <span class="load-text">67% Load</span>
+                            </div>
+                            <div class="component-details">
+                                <span>AutoGen Enterprise • OpenAI Swarm • Load Balancer</span>
+                            </div>
+                        </div>
+
+                        <div class="component-card" data-component="memory">
+                            <div class="card-header">
+                                <h3>AI-Native Memory System</h3>
+                                <div class="status-badge healthy">Healthy</div>
+                            </div>
+                            <div class="load-bar">
+                                <div class="load-fill" style="width: 78%"></div>
+                                <span class="load-text">78% Load</span>
+                            </div>
+                            <div class="component-details">
+                                <span>Vector Database • Knowledge Graph • Personal Graph</span>
+                            </div>
+                        </div>
+
+                        <div class="component-card" data-component="security">
+                            <div class="card-header">
+                                <h3>Zero-Trust Security</h3>
+                                <div class="status-badge healthy">Healthy</div>
+                            </div>
+                            <div class="load-bar">
+                                <div class="load-fill" style="width: 45%"></div>
+                                <span class="load-text">45% Load</span>
+                            </div>
+                            <div class="component-details">
+                                <span>MAESTRO Framework • Identity Mgmt • Threat Detection</span>
+                            </div>
+                        </div>
+
+                        <div class="component-card" data-component="nlp">
+                            <div class="card-header">
+                                <h3>Natural Language Center</h3>
+                                <div class="status-badge warning">Warning</div>
+                            </div>
+                            <div class="load-bar">
+                                <div class="load-fill warning" style="width: 85%"></div>
+                                <span class="load-text">85% Load</span>
+                            </div>
+                            <div class="component-details">
+                                <span>Intent Recognition • Multimodal Processing</span>
+                            </div>
+                        </div>
+
+                        <div class="component-card" data-component="resources">
+                            <div class="card-header">
+                                <h3>Resource Management</h3>
+                                <div class="status-badge healthy">Healthy</div>
+                            </div>
+                            <div class="load-bar">
+                                <div class="load-fill" style="width: 56%"></div>
+                                <span class="load-text">56% Load</span>
+                            </div>
+                            <div class="component-details">
+                                <span>Auto Scaling • Cost Optimization • Self-Healing</span>
+                            </div>
+                        </div>
+
+                        <div class="component-card" data-component="learning">
+                            <div class="card-header">
+                                <h3>Learning Pipeline</h3>
+                                <div class="status-badge healthy">Healthy</div>
+                            </div>
+                            <div class="load-bar">
+                                <div class="load-fill" style="width: 72%"></div>
+                                <span class="load-text">72% Load</span>
+                            </div>
+                            <div class="component-details">
+                                <span>Self-Supervised Learning • RLHF • Model Updates</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Active Requests -->
+                    <section class="requests-section">
+                        <h2>Active Requests</h2>
+                        <div class="requests-list">
+                            <div class="request-item">
+                                <div class="request-header">
+                                    <span class="request-id">req_001</span>
+                                    <span class="request-type query">Query</span>
+                                </div>
+                                <div class="request-stage">Context Retrieval</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%"></div>
+                                    <span class="progress-text">65%</span>
+                                </div>
+                            </div>
+                            <div class="request-item">
+                                <div class="request-header">
+                                    <span class="request-id">req_002</span>
+                                    <span class="request-type task">Task</span>
+                                </div>
+                                <div class="request-stage">Agent Planning</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 30%"></div>
+                                    <span class="progress-text">30%</span>
+                                </div>
+                            </div>
+                            <div class="request-item">
+                                <div class="request-header">
+                                    <span class="request-id">req_003</span>
+                                    <span class="request-type analysis">Analysis</span>
+                                </div>
+                                <div class="request-stage">Response Generation</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 90%"></div>
+                                    <span class="progress-text">90%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- AI Reasoning View -->
+            <div id="ai-reasoning" class="tab-content">
+                <div class="reasoning-container">
+                    <h2>AI Reasoning Flow Visualization</h2>
+                    <div class="flowchart-container">
+                        <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/c580f37e92a6707e1b8f00a1cb2e02a3/c3882ae5-a839-465e-90b8-6489c8b61525/4a09eced.png" alt="AI Reasoning Flow" class="flowchart-diagram">
+                    </div>
+                    <div class="reasoning-controls">
+                        <button class="btn btn--primary" id="traceRequest">Trace New Request</button>
+                        <button class="btn btn--secondary" id="pauseTrace">Pause Trace</button>
+                    </div>
+                    <div class="current-trace">
+                        <h3>Current Request Trace</h3>
+                        <div class="trace-steps">
+                            <div class="trace-step active">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <div class="step-title">Input Processing</div>
+                                    <div class="step-description">Analyzing user request: "Explain machine learning"</div>
+                                </div>
+                            </div>
+                            <div class="trace-step current">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <div class="step-title">Context Retrieval</div>
+                                    <div class="step-description">Searching knowledge graph for ML concepts...</div>
+                                </div>
+                            </div>
+                            <div class="trace-step pending">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <div class="step-title">Agent Planning</div>
+                                    <div class="step-description">Determining best response strategy</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memory System View -->
+            <div id="memory" class="tab-content">
+                <div class="memory-grid">
+                    <section class="memory-stats">
+                        <h2>Memory System Overview</h2>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-value">145</div>
+                                <div class="stat-label">Vector Queries/sec</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">2.3M</div>
+                                <div class="stat-label">Knowledge Graph Nodes</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">78%</div>
+                                <div class="stat-label">Storage Usage</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">450K</div>
+                                <div class="stat-label">Personal Graph Size</div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="memory-visualization">
+                        <h3>System Network</h3>
+                        <div class="network-container">
+                            <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/c580f37e92a6707e1b8f00a1cb2e02a3/99788300-130a-4dcc-858f-42da391b3cb6/fb5eafb1.png" alt="Component Network" class="network-diagram">
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Agent Orchestration View -->
+            <div id="agents" class="tab-content">
+                <div class="agents-container">
+                    <h2>Agent Orchestration Dashboard</h2>
+                    <div class="agents-grid">
+                        <div class="agent-card active">
+                            <div class="agent-header">
+                                <h3>Reasoning Agent</h3>
+                                <div class="agent-status active">Active</div>
+                            </div>
+                            <div class="agent-connections">
+                                <span class="connection">→ Memory Agent</span>
+                                <span class="connection">→ Tool Agent</span>
+                                <span class="connection">→ Security Agent</span>
+                            </div>
+                            <div class="agent-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">Tasks Completed</span>
+                                    <span class="metric-value">127</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Success Rate</span>
+                                    <span class="metric-value">96.2%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="agent-card active">
+                            <div class="agent-header">
+                                <h3>Memory Agent</h3>
+                                <div class="agent-status active">Active</div>
+                            </div>
+                            <div class="agent-connections">
+                                <span class="connection">→ Reasoning Agent</span>
+                                <span class="connection">→ Security Agent</span>
+                            </div>
+                            <div class="agent-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">Queries Processed</span>
+                                    <span class="metric-value">1,847</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Cache Hit Rate</span>
+                                    <span class="metric-value">84.3%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="agent-card busy">
+                            <div class="agent-header">
+                                <h3>Tool Agent</h3>
+                                <div class="agent-status busy">Busy</div>
+                            </div>
+                            <div class="agent-connections">
+                                <span class="connection">→ Reasoning Agent</span>
+                                <span class="connection">→ Security Agent</span>
+                            </div>
+                            <div class="agent-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">Tools Executed</span>
+                                    <span class="metric-value">89</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Avg Response Time</span>
+                                    <span class="metric-value">2.1s</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="agent-card active">
+                            <div class="agent-header">
+                                <h3>Security Agent</h3>
+                                <div class="agent-status active">Active</div>
+                            </div>
+                            <div class="agent-connections">
+                                <span class="connection">→ All Agents</span>
+                            </div>
+                            <div class="agent-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">Threats Blocked</span>
+                                    <span class="metric-value">3</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Auth Events</span>
+                                    <span class="metric-value">1,247</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Monitor View -->
+            <div id="security" class="tab-content">
+                <div class="security-container">
+                    <h2>Security Monitoring Center</h2>
+                    <div class="security-grid">
+                        <section class="security-overview">
+                            <div class="security-stats">
+                                <div class="security-stat">
+                                    <div class="stat-icon threat">⚠️</div>
+                                    <div class="stat-info">
+                                        <div class="stat-number">3</div>
+                                        <div class="stat-title">Threats Blocked Today</div>
+                                    </div>
+                                </div>
+                                <div class="security-stat">
+                                    <div class="stat-icon auth">🔐</div>
+                                    <div class="stat-info">
+                                        <div class="stat-number">1,247</div>
+                                        <div class="stat-title">Authentication Events</div>
+                                    </div>
+                                </div>
+                                <div class="security-stat">
+                                    <div class="stat-icon audit">📋</div>
+                                    <div class="stat-info">
+                                        <div class="stat-number">15.2K</div>
+                                        <div class="stat-title">Audit Log Entries</div>
+                                    </div>
+                                </div>
+                                <div class="security-stat">
+                                    <div class="stat-icon compliance">✅</div>
+                                    <div class="stat-info">
+                                        <div class="stat-number">98%</div>
+                                        <div class="stat-title">Compliance Score</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section class="threat-timeline">
+                            <h3>Recent Security Events</h3>
+                            <div class="timeline">
+                                <div class="timeline-item blocked">
+                                    <div class="timeline-time">14:32</div>
+                                    <div class="timeline-content">
+                                        <div class="event-title">Suspicious API access blocked</div>
+                                        <div class="event-detail">IP: 192.168.1.100 - Reason: Rate limit exceeded</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item success">
+                                    <div class="timeline-time">14:15</div>
+                                    <div class="timeline-content">
+                                        <div class="event-title">Multi-factor authentication success</div>
+                                        <div class="event-detail">User: admin@gas.system</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item warning">
+                                    <div class="timeline-time">13:45</div>
+                                    <div class="timeline-content">
+                                        <div class="event-title">Elevated privilege request</div>
+                                        <div class="event-detail">Agent: Security Agent - Status: Approved</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics View -->
+            <div id="analytics" class="tab-content">
+                <div class="analytics-container">
+                    <h2>Cost & Performance Analytics</h2>
+                    <div class="analytics-grid">
+                        <section class="cost-overview">
+                            <h3>Cost Tracking</h3>
+                            <div class="cost-stats">
+                                <div class="cost-stat">
+                                    <div class="cost-label">Daily Cost</div>
+                                    <div class="cost-value">$234.50</div>
+                                    <div class="cost-budget">/ $300.00 budget</div>
+                                </div>
+                                <div class="usage-breakdown">
+                                    <div class="usage-item">
+                                        <span class="usage-label">GPT-4 Usage</span>
+                                        <div class="usage-bar">
+                                            <div class="usage-fill gpt4" style="width: 45%"></div>
+                                        </div>
+                                        <span class="usage-percent">45%</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-label">Claude Usage</span>
+                                        <div class="usage-bar">
+                                            <div class="usage-fill claude" style="width: 30%"></div>
+                                        </div>
+                                        <span class="usage-percent">30%</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-label">Local LLM</span>
+                                        <div class="usage-bar">
+                                            <div class="usage-fill local" style="width: 25%"></div>
+                                        </div>
+                                        <span class="usage-percent">25%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section class="performance-metrics">
+                            <h3>Performance Trends</h3>
+                            <div class="performance-container" style="position: relative; height: 300px;">
+                                <canvas id="performanceChart"></canvas>
+                            </div>
+                        </section>
+                        
+                        <section class="learning-progress">
+                            <h3>Learning Progress</h3>
+                            <div class="learning-stats">
+                                <div class="learning-stat">
+                                    <div class="stat-circle">
+                                        <div class="circle-progress" data-progress="96.8">
+                                            <span class="progress-text">96.8%</span>
+                                        </div>
+                                    </div>
+                                    <div class="stat-title">Model Accuracy</div>
+                                </div>
+                                <div class="learning-stat">
+                                    <div class="stat-circle">
+                                        <div class="circle-progress" data-progress="94">
+                                            <span class="progress-text">4.7/5</span>
+                                        </div>
+                                    </div>
+                                    <div class="stat-title">User Satisfaction</div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

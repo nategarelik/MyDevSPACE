@@ -12,7 +12,21 @@
     "test": "turbo test",
     "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,md,json}\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    
+    "ai:init": "./bin/ultimate-ai init",
+    "ai:build": "./bin/ultimate-ai sc:build --optimize",
+    "ai:review": "./bin/ultimate-ai sc:review --agents all",
+    "ai:plan": "./bin/ultimate-ai bmad:plan",
+    "ai:dev": "./bin/ultimate-ai dev --mode hybrid",
+    "ai:demo": "./bin/ultimate-ai demo --interactive",
+    "ai:doctor": "./bin/ultimate-ai doctor",
+    "ai:test": "./bin/ultimate-ai test",
+    
+    "demo": "node examples/quick-start/basic-setup.js",
+    "demo:agents": "node examples/superclaude/agent-showcase.js",
+    "demo:bmad": "node examples/bmad/two-phase-workflow.js",
+    "demo:all": "npm run demo && npm run demo:agents && npm run demo:bmad"
   },
   "devDependencies": {
     "@turbo/gen": "^2.3.0",

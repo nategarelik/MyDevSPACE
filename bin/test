@@ -1,0 +1,223 @@
+#!/usr/bin/env node
+
+/**
+ * Ultimate AI IDE Test Suite
+ * 
+ * Validates the implementation of SuperClaude V4.40.0 + BMAD V5.1.3 integration
+ */
+
+const { UltimateAI } = require('./packages/ultimate-ai-integration/dist');
+
+class TestRunner {
+  constructor() {
+    this.tests = [];
+    this.passed = 0;
+    this.failed = 0;
+  }
+
+  test(name, fn) {
+    this.tests.push({ name, fn });
+  }
+
+  async run() {
+    console.log('🧪 Ultimate AI IDE Test Suite');
+    console.log('═════════════════════════════');
+    
+    for (const { name, fn } of this.tests) {
+      try {
+        await fn();
+        console.log(`✅ ${name}`);
+        this.passed++;
+      } catch (error) {
+        console.log(`❌ ${name}: ${error.message}`);
+        this.failed++;
+      }
+    }
+    
+    console.log('\n📊 Test Results:');
+    console.log(`Passed: ${this.passed}`);
+    console.log(`Failed: ${this.failed}`);
+    console.log(`Total: ${this.tests.length}`);
+    
+    if (this.failed === 0) {
+      console.log('🎉 All tests passed!');
+    } else {
+      console.log('⚠️  Some tests failed');
+      process.exit(1);
+    }
+  }
+
+  assert(condition, message) {
+    if (!condition) {
+      throw new Error(message || 'Assertion failed');
+    }
+  }
+
+  assertEqual(actual, expected, message) {
+    if (actual !== expected) {
+      throw new Error(message || `Expected ${expected}, got ${actual}`);
+    }
+  }
+
+  assertExists(value, message) {
+    if (value == null || value == undefined) {
+      throw new Error(message || 'Value should exist');
+    }
+  }
+}
+
+async function runTests() {
+  const test = new TestRunner();
+  const ai = UltimateAI.getInstance();
+
+  // Test 1: Basic Initialization
+  test.test('Ultimate AI initialization', async () => {
+    await ai.initialize();
+    test.assert(true, 'Should initialize without errors');
+  });
+
+  // Test 2: System Status
+  test.test('System status retrieval', async () => {
+    const status = ai.getSystemStatus();
+    test.assertExists(status, 'Status should exist');
+    test.assertExists(status.superClaude, 'SuperClaude status should exist');
+    test.assertExists(status.bmad, 'BMAD status should exist');
+    test.assertExists(status.integration, 'Integration status should exist');
+  });
+
+  // Test 3: Capabilities
+  test.test('Capabilities reporting', async () => {
+    const capabilities = ai.getCapabilities();
+    test.assertExists(capabilities, 'Capabilities should exist');
+    test.assertExists(capabilities.superClaude, 'SuperClaude capabilities should exist');
+    test.assertExists(capabilities.bmad, 'BMAD capabilities should exist');
+    test.assertExists(capabilities.optimization, 'Optimization capabilities should exist');
+  });
+
+  // Test 4: Token Optimization
+  test.test('Token optimization', async () => {
+    const result = await ai.optimizeTokens('Test content for optimization', { strategy: 'hybrid' });
+    test.assertExists(result, 'Optimization result should exist');
+    test.assert(result.reductionPercentage >= 0, 'Reduction percentage should be non-negative');
+    test.assertExists(result.compressionStrategy, 'Compression strategy should be defined');
+  });
+
+  // Test 5: SuperClaude Commands
+  test.test('SuperClaude command execution', async () => {
+    const result = await ai.executeSuperClaudeCommand('sc:build', { project: 'test' });
+    test.assertExists(result, 'Command result should exist');
+    test.assert(typeof result.success === 'boolean', 'Success should be boolean');
+  });
+
+  // Test 6: BMAD Planning
+  test.test('BMAD planning phase', async () => {
+    const result = await ai.executeBMADPlanning({
+      projectName: 'Test Project',
+      requirements: ['test feature'],
+      constraints: { timeline: '1 week' }
+    });
+    test.assertExists(result, 'Planning result should exist');
+    test.assertExists(result.phase, 'Phase should be defined');
+  });
+
+  // Test 7: BMAD Development
+  test.test('BMAD development phase', async () => {
+    const result = await ai.executeBMADDevelopment({
+      prd: 'Test PRD',
+      architecture: 'Test Architecture',
+      context: { requirements: ['test'] }
+    });
+    test.assertExists(result, 'Development result should exist');
+  });
+
+  // Test 8: Hybrid Workflow
+  test.test('Full project workflow', async () => {
+    const result = await ai.executeFullProjectWorkflow({
+      project: { name: 'Test Project', type: 'web', complexity: 'low' },
+      requirements: ['auth', 'api'],
+      preferences: { agile: true }
+    });
+    test.assertExists(result, 'Workflow result should exist');
+    test.assert(typeof result.success === 'boolean', 'Success should be boolean');
+  });
+
+  // Test 9: Smart Code Review
+  test.test('Smart code review', async () => {
+    const result = await ai.smartCodeReview({
+      scope: 'test',
+      focusAreas: ['security', 'performance']
+    });
+    test.assertExists(result, 'Review result should exist');
+    test.assert(typeof result.success === 'boolean', 'Success should be boolean');
+  });
+
+  // Test 10: Intelligent Build
+  test.test('Intelligent build', async () => {
+    const result = await ai.intelligentBuild({
+      project: 'test-project',
+      optimizations: ['performance', 'size']
+    });
+    test.assertExists(result, 'Build result should exist');
+    test.assert(typeof result.success === 'boolean', 'Success should be boolean');
+  });
+
+  // Test 11: Optimization Stats
+  test.test('Optimization statistics', async () => {
+    const stats = ai.getOptimizationStats();
+    test.assertExists(stats, 'Stats should exist');
+    test.assertExists(stats.tokenOptimization, 'Token optimization stats should exist');
+    test.assertExists(stats.costSavings, 'Cost savings should exist');
+    test.assertExists(stats.efficiency, 'Efficiency stats should exist');
+  });
+
+  // Test 12: Health Status
+  test.test('Health monitoring', async () => {
+    const health = ai.getHealthStatus();
+    test.assertExists(health, 'Health status should exist');
+    test.assertExists(health.superClaude, 'SuperClaude health should exist');
+    test.assertExists(health.bmad, 'BMAD health should exist');
+    test.assertExists(health.integration, 'Integration health should exist');
+  });
+
+  await test.run();
+}
+
+// Package Build Tests
+async function testPackageBuilds() {
+  console.log('\n🔨 Package Build Tests');
+  console.log('═════════════════════');
+  
+  const packages = [
+    'superclaude-integration',
+    'bmad-orchestrator', 
+    'ultimate-ai-integration'
+  ];
+  
+  for (const pkg of packages) {
+    try {
+      const { execSync } = require('child_process');
+      execSync(`npm run build`, { 
+        cwd: `packages/${pkg}`,
+        stdio: 'pipe'
+      });
+      console.log(`✅ ${pkg} builds successfully`);
+    } catch (error) {
+      console.log(`❌ ${pkg} build failed`);
+      throw error;
+    }
+  }
+}
+
+// Run all tests
+if (require.main === module) {
+  runTests()
+    .then(() => testPackageBuilds())
+    .then(() => {
+      console.log('\n🎉 All tests completed successfully!');
+      console.log('Ultimate AI IDE is ready for revolutionary AI-powered development');
+    })
+    .catch((error) => {
+      console.error('❌ Test suite failed:', error.message);
+      process.exit(1);
+    });
+}
